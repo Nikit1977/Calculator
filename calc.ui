@@ -167,8 +167,8 @@
             <italic>true</italic>
            </font>
           </property>
-          <property name="whatsThis">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;+000.00&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <property name="contextMenuPolicy">
+           <enum>Qt::NoContextMenu</enum>
           </property>
           <property name="locale">
            <locale language="English" country="UnitedStates"/>

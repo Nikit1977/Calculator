@@ -2,6 +2,7 @@
 #include <QLocale>
 #include "Calculator.h"
 #include "mylineedit.h"
+
 Calculator::Calculator(QWidget *parent) : QMainWindow(parent) {};
 
 Calculator::~Calculator() {}
@@ -70,14 +71,15 @@ void Calculator::num_point() {
 }
 ///возвращает истину, если конвертация двух аргументов из строк в числа прошла успешно
 bool Calculator::convertToDigits() {
-    bool convertResult = true;
+    bool convertResult1 = true;
+    bool convertResult2 = true;
     ///этот тип QLocale позволяет конвертировать запятые в точки (English или С не подходят)
     QLocale c(QLocale::German);
 
     ///результаты конвертации сразу заносятся в поля класса для дальнейших вычислений
-    arg1 = c.toDouble(textArg1->text(), &convertResult);
-    arg2 = c.toDouble(textArg2->text(), &convertResult);
-    return convertResult;
+    arg1 = c.toDouble(textArg1->text(), &convertResult1);
+    arg2 = c.toDouble(textArg2->text(), &convertResult2);
+    return (convertResult1 && convertResult2);
 }
 
 void Calculator::num_plus() {  action->setText("+"); }
