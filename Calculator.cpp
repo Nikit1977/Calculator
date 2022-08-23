@@ -80,33 +80,23 @@ bool Calculator::convertToDigits() {
     return convertResult;
 }
 
-void Calculator::num_plus() {
-    action->setText("+");
-    QString result;
-    ///если просто использовать Qlabel::setNum(double) - слишком часто и не по делу число представляется с экспонентой (10000 + 1 = 1е+4)
-    ///поэтому число в строку конвертирую сам с 15 значащими числами
-    if (convertToDigits()) {resultWindow->setText(result.setNum(arg1 + arg2, 'g', 15));}
-    else resultWindow->setText("ERROR");
-}
+void Calculator::num_plus() {  action->setText("+"); }
+void Calculator::num_minus(){  action->setText("-"); }
+void Calculator::num_div()  {  action->setText("/"); }
+void Calculator::num_mult() {  action->setText("*"); }
 
-void Calculator::num_minus() {
-    action->setText("-");
-    QString result;
-    if (convertToDigits()) {resultWindow->setText(result.setNum(arg1 - arg2, 'g', 15));}
-    else resultWindow->setText("ERROR");
-};
-void Calculator::num_div() {
-    action->setText("/");
-    if (convertToDigits() && arg2) {
-        QString result;
-        resultWindow->setText(result.setNum(arg1 / arg2, 'g', 15));
-    }
-    else resultWindow->setText("ERROR");
-};
-void Calculator::num_mult() {
-    action->setText("*");
-    QString result;
-    if (convertToDigits()) {resultWindow->setText(result.setNum(arg1 * arg2, 'g', 15));}
-    else resultWindow->setText("ERROR");
-};
+void Calculator::result() {
+    QString math = action->text();
+    if (!math.isEmpty() && convertToDigits()) {
+        QString answer;
+        if (math == "+") resultWindow->setText(answer.setNum(arg1 + arg2, 'g', 15));
+        else if (math == "-") resultWindow->setText(answer.setNum(arg1 - arg2, 'g', 15));
+        else if (math == "*") resultWindow->setText(answer.setNum(arg1 * arg2, 'g', 15));
+        else if (math == "/") {
+            if (arg2) resultWindow->setText(answer.setNum(arg1 / arg2, 'g', 15));
+            else resultWindow->setText("ERROR");
+        }
+    } else
+        resultWindow->setText("ERROR");
+}
 

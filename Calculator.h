@@ -32,6 +32,7 @@ public slots:
     void num_div();
     void num_mult();
     void plusminus();
+    void result();
 
     void setArgs(QLineEdit* x, QLineEdit* y);
     void setResultWindows(QLabel* result, QLabel* action);
@@ -46,5 +47,5 @@ private:
     double arg1, arg2;
 
 };
-#include <main.moc>
+//#include <main.moc>
 #endif //INC_1_CALCULATOR_CALCULATOR_H

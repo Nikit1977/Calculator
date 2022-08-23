@@ -394,7 +394,7 @@
         <item>
          <widget class="QPushButton" name="buttonClear">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -408,6 +408,26 @@
           </property>
           <property name="text">
            <string>C</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_result">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>=</string>
           </property>
          </widget>
         </item>
@@ -1212,8 +1232,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>199</y>
+     <x>418</x>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
      <x>500</x>
@@ -1228,8 +1248,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>199</y>
+     <x>418</x>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
      <x>499</x>
@@ -1244,8 +1264,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>199</y>
+     <x>418</x>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
      <x>241</x>
@@ -1260,8 +1280,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>499</x>
-     <y>199</y>
+     <x>418</x>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
      <x>258</x>
@@ -1285,6 +1305,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_result</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>result()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>num0()</slot>
@@ -1304,5 +1340,6 @@
   <slot>num_div()</slot>
   <slot>num_clear()</slot>
   <slot>plusminus()</slot>
+  <slot>result()</slot>
  </slots>
 </ui>
