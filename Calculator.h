@@ -40,6 +40,7 @@ public slots:
 private:
     bool convertToDigits();
     void printChar(QChar ch);
+    QLineEdit* activeFocus() const;
     QLineEdit* textArg1;
     QLineEdit* textArg2;
     QLabel* action;

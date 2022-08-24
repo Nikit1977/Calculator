@@ -29,7 +29,7 @@
          <enum>QLayout::SetDefaultConstraint</enum>
         </property>
         <item>
-         <widget class="MyLineEdit" name="lineEditLeftArg">
+         <widget class="QLineEdit" name="lineEditLeftArg">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
@@ -136,7 +136,7 @@
          </widget>
         </item>
         <item>
-         <widget class="MyLineEdit" name="lineEditRightArg">
+         <widget class="QLineEdit" name="lineEditRightArg">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
@@ -279,7 +279,7 @@
            </font>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::WheelFocus</enum>
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>+</string>
@@ -314,7 +314,7 @@
            </font>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::WheelFocus</enum>
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>-</string>
@@ -349,7 +349,7 @@
            </font>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::WheelFocus</enum>
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>*</string>
@@ -384,7 +384,7 @@
            </font>
           </property>
           <property name="focusPolicy">
-           <enum>Qt::WheelFocus</enum>
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>/</string>
@@ -406,6 +406,9 @@
             <bold>true</bold>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="text">
            <string>C</string>
           </property>
@@ -425,6 +428,9 @@
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>=</string>
@@ -469,6 +475,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -510,6 +519,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="toolTip">
            <string notr="true"/>
@@ -553,6 +565,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -594,6 +609,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="toolTip">
            <string notr="true"/>
@@ -637,6 +655,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -678,6 +699,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="toolTip">
            <string notr="true"/>
@@ -721,6 +745,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -762,6 +789,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="toolTip">
            <string notr="true"/>
@@ -805,6 +835,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -846,6 +879,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="toolTip">
            <string notr="true"/>
@@ -889,6 +925,9 @@
             <pointsize>14</pointsize>
            </font>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="toolTip">
            <string notr="true"/>
           </property>
@@ -924,6 +963,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>,</string>
@@ -976,13 +1018,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>MyLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>mylineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>

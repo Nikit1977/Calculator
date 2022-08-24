@@ -1,7 +1,6 @@
 #include <QString>
 #include <QLocale>
 #include "Calculator.h"
-#include "mylineedit.h"
 
 Calculator::Calculator(QWidget *parent) : QMainWindow(parent) {};
 
@@ -16,16 +15,21 @@ void Calculator::setResultWindows(QLabel *result, QLabel* action) {
     resultWindow = result;
     this->action = action;
 }
-//для укорочения и нормального восприятия текста
-#define ACTIVE_LE MyLineEdit::getActiveLine()
+
+QLineEdit* Calculator::activeFocus() const {
+    if (textArg1->hasFocus()) return textArg1;
+    if (textArg2->hasFocus()) return textArg2;
+    return nullptr;
+}
 
 ///метод устанавливает курсор после печатания цифры с кнопки, на случай,
 ///если надо ввести несколько цифр подряд в середине числа, чтобы не приходилось каждый раз тыкать мышкой
 void Calculator::printChar(QChar ch) {
-    if (ACTIVE_LE->text().length() < 16) {
-        auto pos = ACTIVE_LE->cursorPosition();
-        ACTIVE_LE->setText(ACTIVE_LE->text().insert(pos, ch));
-        ACTIVE_LE->setCursorPosition(++pos);
+    QLineEdit* current = activeFocus();
+    if (current && current->text().length() < 16) {
+        auto pos = current->cursorPosition();
+        current->setText(current->text().insert(pos, ch));
+        current->setCursorPosition(++pos);
     }
 }
 
@@ -41,31 +45,37 @@ void Calculator::num8() { printChar('8'); }
 void Calculator::num9() { printChar('9'); }
 
 void Calculator::plusminus() {
-    QString current = MyLineEdit::getActiveLine()->text();
-    if (!current.isEmpty()) {
-        if (current.front() == '-') {
-            MyLineEdit::getActiveLine()->setText(current.remove(0, 1));
-        } else {
-            MyLineEdit::getActiveLine()->setText(current.insert(0, '-'));
+    QLineEdit* focusQLE = activeFocus();
+    if (focusQLE) {
+        QString current = focusQLE->text();
+        if (!current.isEmpty()) {
+            if (current.front() == '-') {
+                focusQLE->setText(current.remove(0, 1));
+            } else {
+                focusQLE->setText(current.insert(0, '-'));
+            }
         }
     }
 }
 
 void Calculator::num_point() {
-    auto digit = MyLineEdit::getActiveLine()->text().constBegin();
-    bool hasPoint = false;
-    while (digit != MyLineEdit::getActiveLine()->text().constEnd()) {
-        if (*digit == ',') {
-            hasPoint = true;
-            break;
+    QLineEdit* focusQLE = activeFocus();
+    if (focusQLE) {
+        auto digit = focusQLE->text().constBegin();
+        bool hasPoint = false;
+        while (digit != focusQLE->text().constEnd()) {
+            if (*digit == ',') {
+                hasPoint = true;
+                break;
+            }
+            digit++;
         }
-        digit++;
-    }
-    if (!hasPoint) {
-        if (MyLineEdit::getActiveLine()->text().isEmpty()) {
-            MyLineEdit::getActiveLine()->setText(MyLineEdit::getActiveLine()->text() + "0,");
-        } else {
-            printChar(',');
+        if (!hasPoint) {
+            if (focusQLE->text().isEmpty()) {
+                focusQLE->setText(focusQLE->text() + "0,");
+            } else {
+                printChar(',');
+            }
         }
     }
 }
@@ -82,10 +92,10 @@ bool Calculator::convertToDigits() {
     return (convertResult1 && convertResult2);
 }
 
-void Calculator::num_plus() {  action->setText("+"); }
-void Calculator::num_minus(){  action->setText("-"); }
-void Calculator::num_div()  {  action->setText("/"); }
-void Calculator::num_mult() {  action->setText("*"); }
+void Calculator::num_plus() {  action->setText("+"); this->focusNextChild();}
+void Calculator::num_minus(){  action->setText("-"); this->focusNextChild();}
+void Calculator::num_div()  {  action->setText("/"); this->focusNextChild();}
+void Calculator::num_mult() {  action->setText("*"); this->focusNextChild();}
 
 void Calculator::result() {
     QString math = action->text();

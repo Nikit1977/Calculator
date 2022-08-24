@@ -14,7 +14,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(1_calc main.cpp calc.ui Calculator.h Calculator.cpp mylineedit.cpp)
+add_executable(1_calc main.cpp calc.ui Calculator.h Calculator.cpp)
 target_link_libraries(1_calc
         Qt5::Core
         Qt5::Gui
